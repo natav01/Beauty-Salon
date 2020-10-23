@@ -58,7 +58,12 @@ public class Servlet extends HttpServlet {
                   (r)->"/index.jsp");
           System.out.println(command.getClass().getName());
           String page = command.execute(request);
-          response.sendRedirect(page);
+          if(page.contains("redirect:")){
+              response.sendRedirect(page.replace("redirect:", "/Beauty"));
+          }else {
+              request.getRequestDispatcher(page).forward(request, response);
+          }
+         // response.sendRedirect(page);
     	// String path = request.getRequestURI();
         // path = path.replaceAll(".*/api/" , "");
 

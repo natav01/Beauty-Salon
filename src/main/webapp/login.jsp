@@ -6,13 +6,23 @@
 <fmt:setLocale value = "${sessionScope.lang }"/>
 <fmt:setBundle basename = "messages"/>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title> <fmt:message key="label.login" /></title>
-</head>
+
 <body>
+  <head>
+    <link  href="resources/css/style.css" rel="stylesheet"/>
+   
+</head>
+<div class = "language" >
  
-        <h1><fmt:message key="label.in" /></h1><br/>
+		<a href="?sessionLocale=en"><fmt:message key="label.langen" /></a>
+		<br>
+		<a href="?sessionLocale=ua"><fmt:message key="label.langua" /></a>
+		
+	
+</div>
+
+        <div class ="login">
+          <h1><fmt:message key="label.in" /></h1><br/>
        
         <form method="get" action="${pageContext.request.contextPath}/api/login">
         <table>
@@ -25,11 +35,11 @@
         <td ><input type = "password" name = "pass"></td>
          </tr>
          </table>
-          
-           
             <input class="button" type="submit" value=<fmt:message key="label.login" />>
 
         </form>
+        </div>
+       
         
         <ul>
 		<li><a href="?sessionLocale=en"><fmt:message key="label.langen" /></a></li>

@@ -28,7 +28,7 @@ public class Registration implements Command {
 	    		 username.equals("") || password == null || password.equals("")||
 	    		 phone == null || phone.equals("")
 	    		 ){
-	            return "/Beauty/registration.jsp";
+	            return "/registration.jsp";
 	        }
 	     User user = new User();
 	     user.setFirstName(name);
@@ -53,10 +53,10 @@ public class Registration implements Command {
 		
 	     }  else {
 	 	userService.register(user);
-	 	return "/Beauty/login.jsp";
+	 	return "/login.jsp";
 	     }
 	            
 	    
-        return "/Beauty/registration.jsp";
+        return "/registration.jsp";
     }
 }

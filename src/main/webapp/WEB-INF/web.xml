@@ -11,7 +11,10 @@
     <servlet-name>Servlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
+<servlet-mapping> 
+ <servlet-name> default</servlet-name>
+ <url-pattern> /resources/* </url-pattern>
+ </servlet-mapping>
   <filter>
     <filter-name>EncodingFilter</filter-name>
     <filter-class>ua.training.controller.filters.EncodingFilter</filter-class>
@@ -57,6 +60,6 @@
     <location>/WEB-INF/error.jsp</location>
   </error-page>
   
-  
+ 
 
 </web-app>

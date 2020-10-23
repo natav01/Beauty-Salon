@@ -12,6 +12,6 @@ public class LogOut implements Command {
     @Override
     public String execute(HttpServletRequest request) {
     	 CommandUtility.logOut(request);
-         return "redirect:/api/";
+         return "redirect:/index.jsp";
     }
 }
