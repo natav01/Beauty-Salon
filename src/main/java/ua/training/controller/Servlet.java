@@ -2,20 +2,25 @@ package ua.training.controller;
 
 
 
-import ua.training.controller.command.*;
-import ua.training.controller.command.Exception;
-import ua.training.controller.model.mapper.ServiceDao;
-import ua.training.controller.model.service.UserService;
+
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
-
+import ua.training.command.AllUser;
+import ua.training.command.Command;
+import ua.training.command.DeleetUser;
+import ua.training.command.LogOut;
+import ua.training.command.Login;
+import ua.training.command.Exception;
+import ua.training.command.OurService;
+import ua.training.command.Registration;
+import ua.training.model.mapper.ServiceDao;
+import ua.training.model.service.UserService;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -58,7 +63,8 @@ public class Servlet extends HttpServlet {
                   (r)->"/index.jsp");
           System.out.println(command.getClass().getName());
           String page = command.execute(request);
-          if(page.contains("redirect:")){
+         // System.out.println(page);
+         if(page.contains("redirect:")){
               response.sendRedirect(page.replace("redirect:", "/Beauty"));
           }else {
               request.getRequestDispatcher(page).forward(request, response);
@@ -67,13 +73,6 @@ public class Servlet extends HttpServlet {
     	// String path = request.getRequestURI();
         // path = path.replaceAll(".*/api/" , "");
 
-        /* Command command = commands.getOrDefault(path ,
-                 (r)->"/index.jsp");
-         String page = command.execute(request);
-         if(page.contains("redirect:")){
-             response.sendRedirect(page.replace("redirect:", "/Beauty"));
-         }else {
-             request.getRequestDispatcher(page).forward(request, response);
-         }*/
+       
     }
 }
