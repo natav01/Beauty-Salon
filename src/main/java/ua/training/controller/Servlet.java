@@ -17,6 +17,7 @@ import ua.training.command.Exception;
 import ua.training.command.OurService;
 import ua.training.command.Registration;
 import ua.training.model.mapper.ServiceDao;
+import ua.training.model.service.ServiceService;
 import ua.training.model.service.UserService;
 
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class Servlet extends HttpServlet {
         commands.put("delete", new DeleetUser(new UserService()));
         commands.put("find", new AllUser(new UserService()));
         commands.put("registration", new Registration(new UserService()));
-        commands.put("ourservice" , new OurService(new ServiceDao()));
+        commands.put("ourservice" , new OurService(new ServiceService()));
         commands.put("exception" , new Exception());
     }
 

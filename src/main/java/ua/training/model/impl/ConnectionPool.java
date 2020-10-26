@@ -14,7 +14,7 @@ public class ConnectionPool {
 	                    BasicDataSource ds = new BasicDataSource();
 	                    ds.setUrl("jdbc:mysql://localhost:3306/beauty?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false");
 	                    ds.setUsername("root");
-	                    ds.setPassword("12345");
+	                    ds.setPassword("1597532468nv");
 	                    ds.setMinIdle(5);
 	                    ds.setMaxIdle(10);
 	                    ds.setMaxOpenPreparedStatements(100);

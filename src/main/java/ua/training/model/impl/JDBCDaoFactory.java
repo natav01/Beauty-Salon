@@ -6,6 +6,9 @@ import javax.sql.DataSource;
 import ua.training.model.mapper.DaoFactory;
 import ua.training.model.mapper.UserDao;
 
+import ua.training.model.mapper.ServiceDao;
+
+
 import java.sql.Connection;
 
 import java.sql.SQLException;
@@ -27,4 +30,11 @@ public class JDBCDaoFactory extends DaoFactory {
             throw new RuntimeException(e);
         }
     }
+
+
+	@Override
+	public ServiceDao createServiceDao() {
+		// TODO Auto-generated method stub
+		  return (ServiceDao) new JDBCServiceDao(getConnection());
+	}
 }
