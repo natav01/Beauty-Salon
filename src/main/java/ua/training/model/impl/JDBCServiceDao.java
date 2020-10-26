@@ -18,9 +18,7 @@ import ua.training.model.mapper.UserMapper;
 
 public class JDBCServiceDao implements ServiceDao {
 	  private Connection connection;
-private final String SELECTAll = "select services.service_id, services.service_name, "
-		+ "type_of_serviselectces.type_name, services.price, services.duration_in_minutes,"
-		+ "from services inner join type_of_services on services.service_id = type_of_services.type_of_services_id";
+private final String SELECTAll = "select services.service_id, services.service_name, type_of_services.type_name, services.price, services.duration_in_minutes from services inner join type_of_services on services.service_id = type_of_services.type_of_services_id";
 
 	    public JDBCServiceDao(Connection connection) {
 	        this.connection = connection;
