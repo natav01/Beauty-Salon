@@ -34,13 +34,11 @@
    
     
 <form method="get" action="${pageContext.request.contextPath}/api/ourservice">
-       
-        
-         
-           
-            <input class="button" type="submit" value=<fmt:message key="label.service" />>
-
+<input class="button" type="submit" value=<fmt:message key="label.service" />>
         </form>
+   <form method="get" action="${pageContext.request.contextPath}/api/sortByMaster">
+<input class="button" type="submit" value=<fmt:message key="label.sortedByMaster" />>
+        </form>     
         </div>
         
        

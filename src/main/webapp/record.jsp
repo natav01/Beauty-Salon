@@ -6,25 +6,53 @@
 <%@ page isELIgnored="false" %>
 <fmt:setLocale value = "${sessionScope.lang }"/>
 <fmt:setBundle basename = "messages"/>
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
 <body>
+<head>
+    <link  href="resources/css/style.css" rel="stylesheet"/>
+   
+</head>
 <h1> <fmt:message key="label.recgreet" /></h1>
    <table>
         <tr>
-        <td><fmt:message key="label.type" /></td>
+        <td><fmt:message key="label.serviceName" /></td>
         <td ><select name = "Service" > 
 <option>
-<option value = "Манікюр">  Манікюр</option>
-<option value = "Педикюр"> Педикюр 
+<c:forEach var = "s" items = "${service}">
+
+<option value = "${s.serviceName}"> "${s.serviceName}" </option>
+
+</c:forEach>
+
+
  </option>
 </select></td>
          </tr>
          </table>
+    <form method="get" action="${pageContext.request.contextPath}/api/newRecord">
+<input class="button" type="submit" value=<fmt:message key="label.record" />>
+        </form>     
+<table id = "service">
+<tr>
+<th>Service name</th>
+<th>Type name</th>
+<th>Price</th>
+<th>Duration</th>
+
+</tr>
+<c:forEach var = "s" items = "${service}">
+<tr>
+<td>"${s.serviceName}"</td>
+<td>"${s.nameOfType}"</td>
+<td>"${s.price}"</td>
+<td>"${s.duration}"</td>
+
+</tr>
+
+</c:forEach>
+
+</table>
+         
 
 </body>
 </html>

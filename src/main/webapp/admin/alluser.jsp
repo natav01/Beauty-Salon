@@ -1,18 +1,20 @@
 
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, java.text.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+<fmt:setLocale value = "${sessionScope.lang }"/>
+<fmt:setBundle basename = "messages"/>
 <%@ page import = "java.util.*, ua.training.model.entity.User, 
 ua.training.model.service.UserService" %>
 
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+
 <body>
+ <head>
+    <link  href="resources/css/style.css" rel="stylesheet"/>
+   
+</head>
 <h1> ALL USER</h1>
 <%
 
@@ -26,7 +28,7 @@ else {
 }
  UserService userService = new UserService() ;
 List<User> user = userService.find(pageid, total);
-out.print("<table>");
+out.print("<table id = "+"user"+">");
 out.print("<tr><th>Id</th><th>Name</th><th>Surname</th>");
 for (User u: user){
 	out.print("<tr><td>"+u.getId()+"</td><td>"+u.getFirstName()+"</td><td>"+u.getLastName()+"</td></tr>");

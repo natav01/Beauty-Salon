@@ -21,13 +21,15 @@
 <th>Type name</th>
 <th>Price</th>
 <th>Duration</th>
+<th>Master</th>
 </tr>
-<c:forEach var = "s" items = "${service}">
+<c:forEach var = "s" items = "${serviceSorted}">
 <tr>
 <td>"${s.serviceName}"</td>
 <td>"${s.nameOfType}"</td>
 <td>"${s.price}"</td>
 <td>"${s.duration}"</td>
+<td>"${s.masterName}"</td>
 </tr>
 
 </c:forEach>

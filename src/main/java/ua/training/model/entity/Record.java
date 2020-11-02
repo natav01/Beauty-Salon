@@ -6,7 +6,7 @@ public class Record extends Entity{
 private int userId;
 private int serviceId;
 private Date date;
-private boolean status;
+
 public int getUserId() {
 	return userId;
 }
@@ -25,10 +25,5 @@ public Date getDate() {
 public void setDate(Date date) {
 	this.date = date;
 }
-public boolean isStatus() {
-	return status;
-}
-public void setStatus(boolean status) {
-	this.status = status;
-}
+
 }

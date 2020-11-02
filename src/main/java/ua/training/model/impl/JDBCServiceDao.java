@@ -18,7 +18,7 @@ import ua.training.model.mapper.UserMapper;
 
 public class JDBCServiceDao implements ServiceDao {
 	  private Connection connection;
-private final String SELECTAll = "select services.service_id, services.service_name, type_of_services.type_name, services.price, services.duration_in_minutes from services inner join type_of_services on services.service_id = type_of_services.type_of_services_id";
+private final String SELECTAll = "select services.service_id, services.service_name, type_of_services.type_name, services.price, services.duration_in_minutes, user.login from services , type_of_services,  user where services.type_of_service_id = type_of_services.type_of_services_id and services.master_id = user.user_id";
 
 	    public JDBCServiceDao(Connection connection) {
 	        this.connection = connection;
@@ -42,10 +42,11 @@ private final String SELECTAll = "select services.service_id, services.service_n
 		                Service service = serviceMapper
 		                        .extractFromResultSet(rs);
 		              
-		                service = serviceMapper
-		                        .makeUnique(services, service);
+		              service = serviceMapper
+		                   .makeUnique(services, service);
 		               
 		            }
+		          // services.forEach((k,v)->System.out.println(k, v));
 		            return new ArrayList<>(services.values());
 		        } catch (SQLException e) {
 		            e.printStackTrace();
@@ -86,5 +87,33 @@ private final String SELECTAll = "select services.service_id, services.service_n
 		public void close() {
 			// TODO Auto-generated method stub
 			
+		}
+
+ public final String SORTED = "select services.service_id, services.service_name, type_of_services.type_name, services.price, services.duration_in_minutes, user.login from services , type_of_services,  user where services.type_of_service_id = type_of_services.type_of_services_id and services.master_id = user.user_id order by login";
+		@Override
+		public List<Service> findByMasterName() {
+			 Map<Integer, Service> services = new HashMap<>();
+		
+
+		     
+		        try (PreparedStatement st = connection.prepareStatement(SORTED)) {
+		            ResultSet rs = st.executeQuery();
+
+		            ServiceMapper serviceMapper = new ServiceMapper();
+		          
+
+		            while (rs.next()) {
+		                Service service = serviceMapper
+		                        .extractFromResultSet(rs);
+		              
+		                service = serviceMapper
+		                        .makeUnique(services, service);
+		               
+		            }
+		            return new ArrayList<>(services.values());
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		            return null;
+		        }
 		}
 }

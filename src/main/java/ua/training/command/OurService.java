@@ -21,6 +21,8 @@ public class OurService implements Command {
 		 List<Service> service = serviceDao.find();
 		 request.getSession().setAttribute("service" , service);
 		 System.out.println(service);
+		 String path = request.getRequestURI();
+		 System.out.println(path);
 		 return "redirect:/service.jsp";
 	}
 

@@ -7,6 +7,6 @@ import ua.training.model.entity.Service;
 
 public interface ServiceDao extends GenericDao{
 	 List<Service> findAll();
-
+List <Service> findByMasterName();
 		
 }

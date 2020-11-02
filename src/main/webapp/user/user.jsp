@@ -30,10 +30,13 @@
          <input class="button" type="submit" value=<fmt:message key="label.logout" />>
          </form>
          <br>
-         <form method="get" action="${pageContext.request.contextPath}/record.jsp">
+         <form method="get" action="${pageContext.request.contextPath}/api/record">
          <input class="button" type="submit" value=<fmt:message key="label.record" />>
          </form>
          <br>
         <a href="${pageContext.request.contextPath}/index.jsp"><fmt:message key="label.mainpage" /></a>
+        
+        
+        
     </body>
 </html>

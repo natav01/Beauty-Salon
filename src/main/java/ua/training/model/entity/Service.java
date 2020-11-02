@@ -8,6 +8,14 @@ private String serviceName;
 private int typeOfServiceId;
 private BigDecimal price;
 private int duration;
+private String masterName;
+
+public String getMasterName() {
+	return masterName;
+}
+public void setMasterName(String masterName) {
+	this.masterName = masterName;
+}
 public String getServiceName() {
 	return serviceName;
 }

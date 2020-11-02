@@ -17,4 +17,13 @@ public class ServiceService {
 	       
 	        return result;
 	    }
+	    
+	    public List <Service> sort () {
+	    	List <Service> result;
+	    	 try(ServiceDao serviceDao = daoFactory.createServiceDao()){
+		            result = serviceDao.findByMasterName();
+		        }
+		       
+		        return result;
+	    }
 }

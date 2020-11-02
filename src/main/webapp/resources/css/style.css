@@ -79,12 +79,12 @@ body{
     text-align: center;
     background: #818181;
 }
-.table h1{
-	color: red;
+#service td, #service th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
-.table{
-	background: red;
-}
-.table table, th, td {
-	border: 1px solid black;
+
+#user td, #user th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
